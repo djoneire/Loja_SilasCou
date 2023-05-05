@@ -1,0 +1,192 @@
+.nav-bg {
+    background: linear-gradient(to right, #e19d4f, #1419b48c, #232CFF);
+}
+
+.footer2 {
+    background: linear-gradient(to right, #1419b48c, #232CFF, #1419b48c);
+    width: 100%;
+    height: 25px;
+    position: fixed;
+    bottom: 0;
+}
+
+.minhasCor {
+    color: white;
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.menuMobile {
+    background: linear-gradient(to top, #f8ebc1ef, #577cf7f6, #2d32c7, #001d7aec) !important;
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    width: 50%;
+    height: 90%;
+    border-radius: 2px;
+}
+
+.mudaCor {
+    color: white !important;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.mudaCor:focus {
+    color: rgb(17, 0, 255);
+}
+
+.contorno {
+    margin-top: 30px;
+    border: 1px solid #7e7e7e;
+    border-radius: 6px;
+    background: linear-gradient(to top, #fffdf488, #fffceeee);
+}
+
+.hr-custom {
+    width: 100%;
+    margin-top: 0%;
+}
+
+.hr-custom2 {
+    border: 1px solid #4F5AE1;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.btn-center {
+    /*border-top: 1px solid #23242c;*/
+    border-radius: 6px;
+    background-color: rgba(6, 114, 255, 0.925);
+    width: 30%;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    margin-left: 40%;
+    margin-top: 80px;
+}
+
+@media(max-width:1024px) {
+    .btn-center {
+        margin-left: 25%;
+    }
+}
+
+.btn-center:hover {
+    background-color: #232CFF;
+    box-shadow: 0.5px 0.5px 3px;
+}
+
+.campo-valor-total {
+    border: 0.5px solid rgba(50, 63, 78, 0.562);
+    background-color: rgba(235, 241, 143, 0.247);
+    border-radius: 4px;
+}
+
+.valor-total {
+    font-weight: bold;
+    color: rgb(0, 47, 255);
+    font-size: 1.2em;
+}
+
+footer .footer {
+    margin-top: 50px !important;
+    background: linear-gradient(to right, #232CFF, #4F5AE1) !important;
+}
+
+
+/* label color */
+
+.input-field label {
+    color: #0a0a0a !important;
+    text-transform: uppercase;
+}
+
+
+/* label focus color */
+
+.input-field input[type=text]:focus+label {
+    color: #232CFF !important;
+}
+
+
+/* label underline focus color */
+
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #232CFF !important;
+    box-shadow: 0 1px 0 0 #232CFF !important;
+}
+
+
+/* valid color */
+
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #232CFF !important;
+    box-shadow: 0 1px 0 0 #232CFF !important;
+}
+
+
+/* invalid color */
+
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #232CFF !important;
+    box-shadow: 0 1px 0 0 #232CFF !important;
+}
+
+
+/* icon prefix focus color */
+
+.input-field .prefix.active {
+    color: #232CFF !important;
+}
+
+.square {
+    width: 100%;
+    border: 3px solid;
+    margin-bottom: 10px;
+}
+
+.square:nth-child(1) {
+    border-color: #125f15;
+}
+
+.square:nth-child(2) {
+    border-color: #125f15;
+}
+
+.square:nth-child(3) {
+    border-color: #1565C0;
+}
+
+.square:nth-child(4) {
+    border-color: #FF9800;
+}
+
+.square:nth-child(5) {
+    border-color: #FF9800;
+}
+
+.caixaTotalVendas {
+    width: 100%;
+    border: 1px solid;
+    margin-bottom: 10px;
+    border-color: #FF9800;
+}
+
+.caixaTotalLiquido {
+    width: 100%;
+    border: 1px solid;
+    margin-bottom: 10px;
+    border-color: #125f15;
+}
+
+.caixaPorcentagem {
+    width: 100%;
+    border: 1px solid;
+    margin-bottom: 10px;
+    border-color: #1565C0;
+}
