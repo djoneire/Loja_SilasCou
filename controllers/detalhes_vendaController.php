@@ -18,14 +18,23 @@ function PegaNomeProduto($id){
     return $produtoAtual->nome;
 }
 
-function CalculaPorcentagemVenda($e){
-    $porcentagem = ($e->lucro_liquido / ($e->total_venda - $e->lucro_liquido)) * 100;
-    $porcentagem = number_format($porcentagem, 2);
-    return $porcentagem."%";
+function CalculaPorcentagemVenda($e){    
+    if(($e->lucro_liquido <= 0) || ($e->total_venda <=0))
+    {
+        $porcentagem = 0;
+        $porcentagem = number_format($porcentagem, 2);
+        return $porcentagem."%"; 
+    }
+    else
+    {    
+        $porcentagem = ($e->lucro_liquido / ($e->total_venda - $e->lucro_liquido)) * 100;
+        $porcentagem = number_format($porcentagem, 2);
+        return $porcentagem."%";
+    }       
 }
 
-function FormataData($data){
-    $data = new DateTime($data);
-    return $data->format('d/m/Y');
+function FormataData($data_venda){
+    $data_venda = new DateTime($data_venda);
+    return $data_venda->format('d/m/Y');
 }
 ?>

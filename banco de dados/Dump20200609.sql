@@ -21,6 +21,7 @@ USE `lojasilascou`;
 -- Table structure for table `produto`
 --
 
+
 DROP TABLE IF EXISTS `produto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -85,7 +86,13 @@ DROP TABLE IF EXISTS `venda`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `venda` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `data` date DEFAULT NULL,
+  `data_venda` date DEFAULT NULL,  
+  
+  `tipo_pagamento` varchar(50) DEFAULT NULL, /*-->Dinheiro, Cartao*/
+  `taxa` double DEFAULT NULL, /*--> Do cartão, se houver*/
+  `desconto_venda` double DEFAULT NULL,
+  `subtotal_venda` double DEFAULT NULL,
+
   `total_venda` double DEFAULT NULL,
   `lucro_liquido` double DEFAULT NULL,
   `usuario_id` int(11) NOT NULL,
@@ -99,11 +106,20 @@ CREATE TABLE `venda` (
 -- Dumping data for table `venda`
 --
 
-LOCK TABLES `venda` WRITE;
 /*!40000 ALTER TABLE `venda` DISABLE KEYS */;
-INSERT INTO `venda` VALUES (27,'2020-06-05',27,6.45,1),(28,'2020-06-05',50,15,1),(29,'2020-06-05',41,9.55,1),(30,'2020-06-05',19,5.4,1),(31,'2020-06-06',28.5,6.2,1),(32,'2020-06-06',12.5,2.5,1),(35,'2020-06-08',34.7,8.6,1),(36,'2020-06-08',28.2,5.7,1);
+/*LOCK TABLES `venda` WRITE;
+INSERT INTO `venda` VALUES (27,'2020-06-05',27,6.45,1);
+INSERT INTO `venda` VALUES (28,'2020-06-05',50,15,1);
+INSERT INTO `venda` VALUES (29,'2020-06-05',41,9.55,1);
+INSERT INTO `venda` VALUES (30,'2020-06-05',19,5.4,1);
+INSERT INTO `venda` VALUES (31,'2020-06-06',28.5,6.2,1);
+INSERT INTO `venda` VALUES (32,'2020-06-06',12.5,2.5,1);
+INSERT INTO `venda` VALUES (35,'2020-06-08',34.7,8.6,1);
+INSERT INTO `venda` VALUES (36,'2020-06-08',28.2,5.7,1);
+
+UNLOCK TABLES;*/
+
 /*!40000 ALTER TABLE `venda` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `venda_produtos`
@@ -127,11 +143,13 @@ CREATE TABLE `venda_produtos` (
 -- Dumping data for table `venda_produtos`
 --
 
-LOCK TABLES `venda_produtos` WRITE;
 /*!40000 ALTER TABLE `venda_produtos` DISABLE KEYS */;
+/*LOCK TABLES `venda_produtos` WRITE;
 INSERT INTO `venda_produtos` VALUES (3,15,27),(1,3,28),(5,16,28),(2,14,28),(2,3,29),(2,16,29),(1,15,29),(1,15,30),(1,14,30),(2,3,31),(1,16,31),(1,3,32),(1,3,35),(1,17,35),(1,14,35),(1,15,35),(2,3,36),(1,17,36);
+UNLOCK TABLES;*/
 /*!40000 ALTER TABLE `venda_produtos` ENABLE KEYS */;
-UNLOCK TABLES;
+
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

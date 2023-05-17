@@ -24,14 +24,14 @@
             <tbody>
                 <tr>
                     <th>Data</th>
-                    <td><?php echo FormataData($vendaAtual->data);?></td>
+                    <td><?php echo FormataData($vendaAtual->data_venda);?></td>
                 </tr>
                 <tr>
                     <th>Total Venda</th>
                     <td>R$<?php echo number_format($vendaAtual->total_venda, 2);?></td>
                 </tr>
                 <tr>
-                    <th>Lucro Liquido</th>   
+                    <th>Lucro Liquido</th>
                     <td>R$<?php echo number_format($vendaAtual->lucro_liquido, 2);?></td>
                 </tr>
                 <tr>

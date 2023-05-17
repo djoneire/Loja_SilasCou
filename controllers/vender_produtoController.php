@@ -1,12 +1,16 @@
 <?php 
 
 $mensagens = [];
-/*
+
 if(isset($_POST['cadastra_venda'])){
     $produto = new Produto;
    
     $total_venda = 0;
     $total_gasto = 0;
+    //Novos
+    $tipo_pagamento = '';
+    $taxa = 0;
+    $desconto = 0;
 
     for($j = 1; $j < 35; $j++){
         if($_POST['quantidade'.$j] == 0){
@@ -28,9 +32,22 @@ if(isset($_POST['cadastra_venda'])){
     $lucro_liquido = $total_venda - $total_gasto;
 
     $data_venda = date('Y-m-d');
+    
+    
+    $tipo_pagamento = filter_var($_POST['pagamento'], FILTER_SANITIZE_STRING);    
+    $taxa = filter_var($_POST['taxas'], FILTER_SANITIZE_STRING);    
+    $desconto = filter_var($_POST['desconto'], FILTER_SANITIZE_STRING);    
+    
+    //Trocando "," por "."
+    $taxa = str_replace(",",".",$taxa); //-->Tem que ser "ponto"
 
-    $venda = new Venda;
-    $venda->CadastraVenda($data_venda, $total_venda, $lucro_liquido, '1');
+    $venda = new Venda;    
+    $venda->CadastraVenda($data_venda, $total_venda, $lucro_liquido, 
+                          '1',//-->>> ID do usuários...
+                          $tipo_pagamento,
+                          $taxa,
+                          $desconto 
+                        );
 
     $venda_id = $venda->PegaIdUltimaVenda();
     $venda_id = $venda_id->maxId;
@@ -50,5 +67,5 @@ if(isset($_POST['cadastra_venda'])){
     array_push($mensagens, "Venda no Total de R$ $total_venda Realizada com sucesso");
 
 }
-*/
+
 ?>

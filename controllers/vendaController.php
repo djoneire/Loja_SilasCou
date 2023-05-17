@@ -18,9 +18,23 @@ if(isset($_GET['sucesso'])){
 }
 
 function CalculaPorcentagemVenda($e){
-    $porcentagem = ($e->lucro_liquido / ($e->total_venda - $e->lucro_liquido)) * 100;
-    $porcentagem = number_format($porcentagem, 2);
-    return $porcentagem."%";
+    if(($e->lucro_liquido <= 0) || ($e->total_venda <=0))
+    {
+        $porcentagem = 0;
+        $porcentagem = number_format($porcentagem, 2);       
+        return $porcentagem."%";
+    }
+    else
+    {    
+        $porcentagem = ($e->lucro_liquido / ($e->total_venda - $e->lucro_liquido)) * 100;
+        $porcentagem = number_format($porcentagem, 2);       
+        return $porcentagem."%";
+    }   
+}
+
+function FormataTaxaPorcentagem($e){
+    $e = number_format($e, 2);
+    return $e."%";
 }
 
 function FormatToMoney($e){
@@ -38,4 +52,5 @@ function BuscaNome($id){
     $usuarios = $usuario->find($id);
     return $usuarios->nome;
 }
+
 ?>

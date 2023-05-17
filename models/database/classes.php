@@ -111,15 +111,20 @@ class Produto extends Model{
 
 class Venda extends Model {
     protected $table = "venda";
+    //public $tipo_pagamento = $_POST['tipo_pagamento'];
+    
 
-    public function CadastraVenda($data_venda, $total_venda, $lucro_liquido, $usuario_id){
-        $sql = "insert into $this->table (data, total_venda, lucro_liquido, usuario_id) values (?, ? ,? ,?)";
-        $list = connect()->prepare($sql);
-        $list->bindValue(1, $data_venda);
+    public function CadastraVenda($data_venda, $total_venda, $lucro_liquido, $usuario_id, $tipo_pagamento, $taxa, $desconto){
+        $sql = "insert into $this->table (data_venda, total_venda, lucro_liquido, usuario_id, tipo_pagamento, taxa, desconto_venda) values (?, ?, ?, ?, ?, ?, ?)";
+        $list = connect()->prepare($sql);                
+        $list->bindValue(1, $data_venda);        
         $list->bindValue(2, $total_venda);
         $list->bindValue(3, $lucro_liquido);
         $list->bindValue(4, $usuario_id);
-
+        $list->bindValue(5, $tipo_pagamento);
+        $list->bindValue(6, $taxa);
+        $list->bindValue(7, $desconto );
+        
         $list->execute();
 
         return $list->rowCount();
@@ -134,7 +139,7 @@ class Venda extends Model {
     }
 
     public function PegaVendasDecrescente(){
-        $sql = "select * from $this->table order by data desc, id desc";
+        $sql = "select * from $this->table order by data_venda desc, id desc";
         $list = connect()->prepare($sql);
         $list->execute();
 
