@@ -18,6 +18,9 @@ if(isset($_POST['cadastrar_produto'])){
 
     $produto = new Produto;
     
+    //--> Trocando "," por "."
+    $preco_compra = str_replace(",",".",$preco_compra); //-->Tem que ser "ponto"
+    $preco_venda = str_replace(",",".",$preco_venda); //-->Tem que ser "ponto"
 
     if($produto->CadastraProduto($nome, $preco_compra, $preco_venda, $qtd_estoque)){
         array_push($mensagens, "<h6 class=\"green-text text-darken-3\">Produto Cadastrado com Sucesso</h6>");

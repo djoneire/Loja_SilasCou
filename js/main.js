@@ -1,11 +1,11 @@
-$(document).ready(function(){
+$(document).ready(function() {
     $('.sidenav').sidenav();
 });
 
-$(document).ready(function(){
+$(document).ready(function() {
     $('select').formSelect();
-  });
-        
+});
+
 $('.escondido').hide()
 
 $('.btn-center').click((e) => {
@@ -15,37 +15,43 @@ $('.btn-center').click((e) => {
 
     let maior = 0;
 
-    selects.forEach((e, i) =>{
-        maior = VerificaMaior(e,maior,campos[i]);
+    selects.forEach((e, i) => {
+        maior = VerificaMaior(e, maior, campos[i]);
     })
-    
+
     maior++
 
     $(`select[id="${maior}"]`).closest('.escondido').show()
     $(`select[id="${maior}"]`).closest('.escondido').removeClass('escondido')
 })
 
-function VerificaMaior (e,maior,campo){
-    if(campo.classList.contains("escondido")){
+function VerificaMaior(e, maior, campo) {
+    if (campo.classList.contains("escondido")) {
         return maior;
     }
 
-    let atual =  parseInt(e.id);
+    let atual = parseInt(e.id);
 
-    return atual > maior ? atual : maior 
+    return atual > maior ? atual : maior
 }
 
 $('.venda-form').on('change', () => {
     let precos = [];
-    let quantidade = []
-    $('.venda-form select').each((i , e) => {
+    let quantidade = [];
+    let taxa = []
+    $('.venda-form select').each((i, e) => {
         precos.push(parseFloat(e.options[e.selectedIndex].getAttribute('preco')))
     })
 
 
     $('.venda-form input[type="number"]').each((i, e) => {
-        $(e).val() < 0 ? $(e).val(0) : null 
+        $(e).val() < 0 ? $(e).val(0) : null
         quantidade.push(parseFloat($(e).val()))
+    })
+
+    $('.venda-form input[type="number"]').each((i, e) => {
+        $(e).val() < 0 ? $(e).val(0) : null
+        taxa.push(parseFloat($(e).val()))
     })
 
     let total = SomaTotal(precos, quantidade);
@@ -55,10 +61,10 @@ $('.venda-form').on('change', () => {
     $('.valor-total').html(`R$${total.toFixed(2)}`)
 })
 
-function SomaTotal(precos, quantidade){
+function SomaTotal(precos, quantidade) {
     let total = 0;
-    for(let i = 0; i < precos.length; i++){
-        if(isNaN(precos[i])){
+    for (let i = 0; i < precos.length; i++) {
+        if (isNaN(precos[i])) {
             continue
         }
         total += precos[i] * quantidade[i]

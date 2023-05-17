@@ -27,6 +27,7 @@ function CalculaPorcentagemVenda($e){
     else
     {    
         $porcentagem = ($e->lucro_liquido / ($e->total_venda - $e->lucro_liquido)) * 100;
+        //$porcentagem = ($e->lucro_liquido / (CalculaSubTotal($e) - $e->lucro_liquido)) * 100;
         $porcentagem = number_format($porcentagem, 2);       
         return $porcentagem."%";
     }   
@@ -52,5 +53,18 @@ function BuscaNome($id){
     $usuarios = $usuario->find($id);
     return $usuarios->nome;
 }
+
+function CalculaTotal($e){         
+    $calcula = 0;
+    $subtotal = 0;
+    
+    $calcula = $e->total_venda +(($e->taxa/100)*$e->total_venda);
+    
+    $subtotal = $calcula - ($e->desconto_venda);
+    
+    $subtotal = number_format($subtotal, 2);    
+    
+    return $subtotal;
+} 
 
 ?>

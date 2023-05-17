@@ -52,9 +52,11 @@
                 <th>Pagamento</th>
                 <th>Taxas</th>
                 <th>Desconto</th>
-                <th>Total Venda</th>                
-                <th>Lucro Líquido</th>
+                <th>SubTotal</th>
+                <th>Total</th>                                
+                <th>Lucro</th>
                 <th>Porcentagem</th>
+
                 <th>Detalhes Venda</th>
                 <th>Cancelar Venda</th>
             </tr>
@@ -64,11 +66,14 @@
                 <tr>
                     <td><?php echo FormataData($e->data_venda);?></td>
                     <td><?php echo ($e->tipo_pagamento);?></td>
-                    <td><?php echo FormataTaxaPorcentagem($e->taxa);?></td>t
-                    <td><?php echo FormatToMoney($e->total_venda);?></td>
+                    <td><?php echo FormataTaxaPorcentagem($e->taxa);?></td>
                     <td><?php echo FormatToMoney($e->desconto_venda);?></td>
+                    <td><?php echo FormatToMoney($e->total_venda);?></td>
+                    <td><?php echo FormatToMoney(CalculaTotal($e));?></td>                    
                     <td><?php echo FormatToMoney($e->lucro_liquido);?></td>
                     <td><?php echo CalculaPorcentagemVenda($e)?></td>
+                    
+
                     <td><a href="detalhes_venda.php?id=<?php echo $e->id;?>" class="btn green darken-2">Detalhes</a></td>
                     <td><a href="functions/cancelar_venda.php?id=<?php echo $e->id;?>" class="btn red darken-2">Cancelar</a></td>
                 <tr>
