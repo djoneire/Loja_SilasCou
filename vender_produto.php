@@ -42,7 +42,7 @@
                             </select>
                         </strong>                         
                     </div>
-<!--
+                    <!--
                     <div class="input-field col s5">
                         <input id="pagamento" type="text" name="pagamento">
                         <label for="pagamento">Taxas</label>
