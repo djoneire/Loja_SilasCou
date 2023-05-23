@@ -27,11 +27,27 @@
                     <td><?php echo FormataData($vendaAtual->data_venda);?></td>
                 </tr>
                 <tr>
-                    <th>Total Venda</th>
+                    <th>Pagamento</th>
+                    <td><?php echo ($vendaAtual->tipo_pagamento);?></td>
+                </tr>
+                <tr>
+                    <th>Taxa</th>
+                    <td><?php echo number_format($vendaAtual->taxa, 2);?>%</td>
+                </tr>
+                <tr>
+                    <th>Desconto</th>
+                    <td>R$<?php echo number_format($vendaAtual->desconto_venda, 2);?></td>
+                </tr>
+                <tr>
+                    <th>SubTotal</th>
+                    <td>R$<?php echo number_format($vendaAtual->subtotal_venda, 2);?></td>
+                </tr>
+                <tr>
+                    <th>Total</th>
                     <td>R$<?php echo number_format($vendaAtual->total_venda, 2);?></td>
                 </tr>
                 <tr>
-                    <th>Lucro Liquido</th>
+                    <th>Lucro Líquido</th>
                     <td>R$<?php echo number_format($vendaAtual->lucro_liquido, 2);?></td>
                 </tr>
                 <tr>

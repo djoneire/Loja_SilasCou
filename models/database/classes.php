@@ -114,8 +114,8 @@ class Venda extends Model {
     //public $tipo_pagamento = $_POST['tipo_pagamento'];
     
 
-    public function CadastraVenda($data_venda, $total_venda, $lucro_liquido, $usuario_id, $tipo_pagamento, $taxa, $desconto){
-        $sql = "insert into $this->table (data_venda, total_venda, lucro_liquido, usuario_id, tipo_pagamento, taxa, desconto_venda) values (?, ?, ?, ?, ?, ?, ?)";
+    public function CadastraVenda($data_venda, $total_venda, $lucro_liquido, $usuario_id, $tipo_pagamento, $taxa, $desconto, $subtotal_venda){
+        $sql = "insert into $this->table (data_venda, total_venda, lucro_liquido, usuario_id, tipo_pagamento, taxa, desconto_venda, subtotal_venda) values (?, ?, ?, ?, ?, ?, ?, ?)";
         $list = connect()->prepare($sql);                
         $list->bindValue(1, $data_venda);        
         $list->bindValue(2, $total_venda);
@@ -123,7 +123,8 @@ class Venda extends Model {
         $list->bindValue(4, $usuario_id);
         $list->bindValue(5, $tipo_pagamento);
         $list->bindValue(6, $taxa);
-        $list->bindValue(7, $desconto );
+        $list->bindValue(7, $desconto);
+        $list->bindValue(8, $subtotal_venda);
         
         $list->execute();
 
